@@ -1,8 +1,8 @@
-import { Link, useNavigate, useRouteError } from 'react-router-dom'
+import { Link, useRouteError } from 'react-router-dom'
 import Header from './Header'
+import LinkButton from './LinkButton'
 
 function Error() {
-    const navigate = useNavigate()
     const error = useRouteError()
 
     return (
@@ -10,7 +10,7 @@ function Error() {
             <Link to="/">Crusto</Link>
             <h1>Something went wrong 😢</h1>
             <p>{error.data || error.message}</p>
-            <button onClick={() => navigate(-1)}>&larr; Go back</button>
+            <LinkButton to="-1">&larr; Go Back</LinkButton>
         </div>
     )
 }

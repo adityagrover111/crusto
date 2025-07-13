@@ -1,7 +1,9 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Button from '../../ui/Button'
 import { formatCurrency } from '../../utils/helpers'
-import { addItem } from '../cart/cartSlice'
+import { addItem, getCurrentQuantityById } from '../cart/cartSlice'
+import DeleteItem from '../cart/DeleteItem'
+import UpdateItemQuantity from '../cart/updateItemQuantity'
 
 function MenuItem({ pizza }) {
     const dispatch = useDispatch()
@@ -17,7 +19,8 @@ function MenuItem({ pizza }) {
         }
         dispatch(addItem(newItem))
     }
-
+    const currentQuantity = useSelector(getCurrentQuantityById(id))
+    const isInCart = currentQuantity > 0
     return (
         <li className="flex gap-4 py-2">
             <img
@@ -30,6 +33,7 @@ function MenuItem({ pizza }) {
                 <p className="text-sm capitalize italic text-zinc-500">
                     {ingredients.join(', ')}
                 </p>
+
                 <div className="mt-auto flex items-center justify-between">
                     {!soldOut ? (
                         <p className="text-sm">{formatCurrency(unitPrice)}</p>
@@ -38,10 +42,21 @@ function MenuItem({ pizza }) {
                             Sold out
                         </p>
                     )}
-                    {!soldOut && (
-                        <Button onClick={handleAddToCart} type="small">
-                            Add to cart
-                        </Button>
+                    {isInCart && (
+                        <div className="flex items-center gap-2 md:gap-3">
+                            <UpdateItemQuantity
+                                pizzaId={id}
+                                currentQuantity={currentQuantity}
+                            />
+                            <DeleteItem pizzaId={id} />
+                        </div>
+                    )}
+                    {!soldOut && !isInCart && (
+                        <>
+                            <Button onClick={handleAddToCart} type="small">
+                                Add to cart
+                            </Button>
+                        </>
                     )}
                 </div>
             </div>

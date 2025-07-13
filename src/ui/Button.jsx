@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Button({ children, disabled, to, type, onClick }) {
-    const className =
-        'inline-block rounded-full bg-amber-400 px-4 py-3 font-semibold uppercase tracking-wide text-zinc-800 transition-colors hover:bg-amber-300 focus:bg-amber-300 focus:outline-none focus:ring focus:ring-amber-300 focus:ring-offset-2 disabled:cursor-not-allowed sm:px-6 sm:py-4'
     const base =
         'inline-block rounded-full bg-amber-400 font-semibold uppercase tracking-wide text-zinc-800 transition-colors hover:bg-amber-300 focus:bg-amber-300 focus:outline-none focus:ring focus:ring-amber-300 text-sm focus:ring-offset-2 disabled:cursor-not-allowed '
 

@@ -18,7 +18,7 @@ function CreateUser() {
     return (
         <form onSubmit={handleSubmit}>
             <p className="mb-4 text-sm text-zinc-600 md:text-base">
-                👋 Welcome! Please start by telling us your name:
+                🍕 Welcome to Crusto! Let&apos;s start with your name:
             </p>
 
             <input
@@ -26,7 +26,7 @@ function CreateUser() {
                 placeholder="Your full name"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="input mb-8 w-72"
+                className="input mb-8 w-72 rounded-full shadow-sm shadow-amber-100"
             />
 
             {username !== '' && (

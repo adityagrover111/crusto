@@ -7,10 +7,10 @@ function Home() {
     return (
         <div className="my-10 px-4 text-center sm:my-16">
             <h1 className="mb-8 text-xl font-bold md:text-3xl">
-                The best pizza.
+                From code to crust.
                 <br />
                 <span className="text-amber-500">
-                    Straight out of the oven, straight to you.
+                    Built for practice. Served hot.
                 </span>
             </h1>
             {userName === '' ? (

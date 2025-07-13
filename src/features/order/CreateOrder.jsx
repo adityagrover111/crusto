@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Form, redirect, useActionData, useNavigation } from 'react-router-dom'
 import { createOrder } from '../../services/apiRestaurant'
 import Button from '../../ui/Button'
+import { useSelector } from 'react-redux'
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -41,6 +42,7 @@ function CreateOrder() {
 
     // const [withPriority, setWithPriority] = useState(false);
     const cart = fakeCart
+    const userName = useSelector((state) => state.user.username)
 
     return (
         <div className="px-4 py-6">
@@ -56,6 +58,7 @@ function CreateOrder() {
                         type="text"
                         name="customer"
                         required
+                        defaultValue={userName}
                     />
                 </div>
 
@@ -95,7 +98,7 @@ function CreateOrder() {
 
                 <div className="mb-10 flex items-center gap-5">
                     <input
-                        className="my-2 h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2"
+                        className="my-2 h-6 w-6 accent-amber-400 focus:outline-none focus:ring focus:ring-amber-400 focus:ring-offset-2"
                         type="checkbox"
                         name="priority"
                         id="priority"

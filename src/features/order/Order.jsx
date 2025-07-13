@@ -75,28 +75,28 @@ function Order() {
                 </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-2 bg-stone-200 px-6 py-5">
+            <div className="flex flex-wrap items-center justify-between gap-2 bg-zinc-200 px-6 py-5">
                 <p className="font-medium">
                     {deliveryIn >= 0
                         ? `Only ${calcMinutesLeft(estimatedDelivery)} minutes left 😃`
                         : 'Order should have arrived'}
                 </p>
-                <p className="text-xs text-stone-500">
+                <p className="text-xs text-zinc-500">
                     (Estimated delivery: {formatDate(estimatedDelivery)})
                 </p>
             </div>
 
-            <ul className="dive-stone-500 flex-col items-center justify-around space-y-4 divide-y border border-b border-t px-2 py-2">
+            <ul className="dive-zinc-500 flex-col items-center justify-around space-y-4 divide-y border border-b border-t px-2 py-2">
                 {cart.map((item) => (
                     <OrderItem item={item} key={item.id} />
                 ))}
             </ul>
-            <div className="space-y-2 bg-stone-200 px-6 py-5">
-                <p className="text-sm font-medium text-stone-600">
+            <div className="space-y-2 bg-zinc-200 px-6 py-5">
+                <p className="text-sm font-medium text-zinc-600">
                     Price pizza: {formatCurrency(orderPrice)}
                 </p>
                 {priority && (
-                    <p className="text-sm font-medium text-stone-600">
+                    <p className="text-sm font-medium text-zinc-600">
                         Price priority: {formatCurrency(priorityPrice)}
                     </p>
                 )}

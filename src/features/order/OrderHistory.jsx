@@ -6,6 +6,7 @@ import Button from '../../ui/Button'
 
 function OrderHistory() {
     const orders = JSON.parse(localStorage.getItem('orders')) || []
+    const username = useSelector((state) => state.user.username)
     if (orders.length === 0)
         return (
             <div>
@@ -27,7 +28,7 @@ function OrderHistory() {
     return (
         <div>
             <h1 className="ml-1.5 px-2 py-2 text-lg font-extrabold capitalize">
-                Order History
+                {`Order History For, ${username}`}
             </h1>
 
             <ul>

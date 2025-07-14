@@ -10,7 +10,7 @@ function HistoryItem({ item }) {
             <div className="m-3 mb-2 rounded-lg border border-zinc-300 bg-amber-100 p-4 shadow-sm transition-all duration-200 hover:bg-amber-200">
                 <div className="mb-2 flex items-center justify-between">
                     <h3 className="text-lg font-semibold">
-                        {customer}
+                        {`Order ID: #${id}`}
                         {priority && (
                             <span className="ml-2 rounded-full bg-amber-400 px-2 py-0.5 text-xs font-medium text-zinc-900">
                                 Priority
@@ -25,9 +25,6 @@ function HistoryItem({ item }) {
                 <p className="text-sm text-zinc-600">
                     📞 {phone} <br /> 📍 {address}
                 </p>
-                <h3 className="text-sm font-bold text-gray-600">
-                    Order ID: #{id}
-                </h3>
 
                 <ul className="mt-4 space-y-2 border-t border-zinc-400 pt-4">
                     {cart.map((pizza) => (

@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux'
 import HistoryItem from './HistoryItem'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+
 import Button from '../../ui/Button'
 
 function OrderHistory() {

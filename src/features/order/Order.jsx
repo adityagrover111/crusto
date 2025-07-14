@@ -88,7 +88,7 @@ function Order() {
 
             <ul className="dive-zinc-500 flex-col items-center justify-around space-y-4 divide-y border border-b border-t px-2 py-2">
                 {cart.map((item) => (
-                    <OrderItem item={item} key={item.id} />
+                    <OrderItem item={item} key={item.pizzaId} />
                 ))}
             </ul>
             <div className="space-y-2 bg-zinc-200 px-6 py-5">

@@ -126,8 +126,13 @@ export async function action({ request }) {
         errors.phone = 'Please give us your correct phone number'
 
     if (Object.keys(errors).length > 0) return errors
-    //
+
     const newOrder = await createOrder(order)
+    const orderWithId = { ...order, id: newOrder.id }
+    const existing = JSON.parse(localStorage.getItem('orders')) || []
+    const updated = [...existing, orderWithId]
+    localStorage.setItem('orders', JSON.stringify(updated))
+
     store.dispatch(clearCart())
     return redirect(`/order/${newOrder.id}`)
 }

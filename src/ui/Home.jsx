@@ -16,9 +16,16 @@ function Home() {
             {userName === '' ? (
                 <CreateUser />
             ) : (
-                <Button to="/menu" type="primary">
-                    Continue Ordering, {userName}
-                </Button>
+                <div className="flex-col space-y-2">
+                    <Button to="/menu" type="primary">
+                        Continue Ordering, {userName}
+                    </Button>
+                    {
+                        <Button to="/order/history" type="secondary">
+                            Your Order History
+                        </Button>
+                    }
+                </div>
             )}
         </div>
     )

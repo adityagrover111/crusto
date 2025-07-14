@@ -9,6 +9,7 @@ import Order, { loader as orderLoader } from './features/order/Order'
 import AppLayout from './ui/AppLayout'
 import Error from './ui/Error'
 import ProtectedRoute from './features/user/ProtectedRoute'
+import OrderHistory from './features/order/OrderHistory'
 const router = createBrowserRouter([
     {
         element: <AppLayout />,
@@ -29,6 +30,14 @@ const router = createBrowserRouter([
                 element: (
                     <ProtectedRoute>
                         <Cart />
+                    </ProtectedRoute>
+                ),
+            },
+            {
+                path: '/order/history',
+                element: (
+                    <ProtectedRoute>
+                        <OrderHistory />
                     </ProtectedRoute>
                 ),
             },

@@ -3,6 +3,7 @@ import Button from '../../ui/Button'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { updateName } from './userSlice'
+import toast from 'react-hot-toast'
 
 function CreateUser() {
     const navigate = useNavigate()
@@ -12,7 +13,9 @@ function CreateUser() {
     function handleSubmit(e) {
         e.preventDefault()
         if (!username) return
-        dispatch(updateName(username)).then(navigate('/menu'))
+        dispatch(updateName(username))
+        toast.success(`Welcome, ${username}`)
+        navigate('/menu')
     }
 
     return (

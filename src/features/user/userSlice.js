@@ -21,7 +21,9 @@ import { createSlice } from '@reduxjs/toolkit'
 //     return { position, address }
 // }
 
-const initialState = { username: '' }
+const initialState = {
+    username: sessionStorage.getItem('username') || '',
+}
 
 const userSlice = createSlice({
     name: 'user',
@@ -29,6 +31,7 @@ const userSlice = createSlice({
     reducers: {
         updateName(state, action) {
             state.username = action.payload
+            sessionStorage.setItem('username', action.payload)
         },
     },
 })

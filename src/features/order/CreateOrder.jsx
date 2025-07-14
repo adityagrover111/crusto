@@ -120,7 +120,7 @@ export async function action({ request }) {
         cart: JSON.parse(data.cart),
         priority: data.priority === 'true',
     }
-    console.log(data)
+
     const errors = {}
     if (!isValidPhone(order.phone))
         errors.phone = 'Please give us your correct phone number'

@@ -24,7 +24,7 @@ function OrderHistory() {
                 </div>
             </div>
         )
-    console.log(orders)
+
     return (
         <div>
             <h1 className="ml-1.5 px-2 py-2 text-lg font-extrabold capitalize">

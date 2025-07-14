@@ -5,12 +5,16 @@ import CartItem from './CartItem'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearCart, getCart } from './cartSlice'
 import EmptyCart from './EmptyCart'
+import toast from 'react-hot-toast'
 
 function Cart() {
     const cart = useSelector(getCart)
     const dispatch = useDispatch()
     const userName = useSelector((state) => state.user.username)
-
+    function handleClear() {
+        toast.error('Cart cleared!')
+        dispatch(clearCart())
+    }
     if (!cart.length) return <EmptyCart />
     return (
         <div className="px-4 py-3">
@@ -29,7 +33,7 @@ function Cart() {
                     Order pizzas
                 </Button>
 
-                <Button onClick={() => dispatch(clearCart())} type="secondary">
+                <Button onClick={() => handleClear()} type="secondary">
                     Clear cart
                 </Button>
             </div>

@@ -1,6 +1,6 @@
 import toast from 'react-hot-toast'
 
-const API_URL = 'https://react-fast-pizza-api.jonas.io/api'
+const API_URL = 'https://crusto-backend-int7.onrender.com/api'
 
 export async function getMenu() {
     const res = await fetch(`${API_URL}/menu`)
@@ -19,9 +19,9 @@ export async function getOrder(id) {
         throw Error(`Couldn't find order #${id}`)
     }
 
-    const { data } = await res.json()
+    const order = await res.json()
 
-    return data
+    return order
 }
 
 export async function createOrder(newOrder) {
@@ -38,26 +38,9 @@ export async function createOrder(newOrder) {
         toast.success('Your pizza is on the way! 🚀', {
             icon: '🧾', // or keep 🍕
         })
-        const { data } = await res.json()
-        return data
+        const order = await res.json()
+        return order
     } catch {
         throw Error('Failed creating your order')
-    }
-}
-
-export async function updateOrder(id, updateObj) {
-    try {
-        const res = await fetch(`${API_URL}/order/${id}`, {
-            method: 'PATCH',
-            body: JSON.stringify(updateObj),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-
-        if (!res.ok) throw Error()
-        // We don't need the data, so we don't return anything
-    } catch (err) {
-        throw Error('Failed updating your order')
     }
 }

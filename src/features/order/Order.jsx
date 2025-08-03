@@ -70,7 +70,7 @@ function Order() {
                         </span>
                     )}
                     <span className="rounded-full bg-green-500 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-green-50">
-                        {status} order
+                        {status}
                     </span>
                 </div>
             </div>

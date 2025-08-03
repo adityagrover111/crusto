@@ -128,7 +128,9 @@ export async function action({ request }) {
     if (Object.keys(errors).length > 0) return errors
 
     const newOrder = await createOrder(order)
+
     const orderWithId = { ...order, id: newOrder.id }
+
     const existing = JSON.parse(localStorage.getItem('orders')) || []
     const updated = [...existing, orderWithId]
     localStorage.setItem('orders', JSON.stringify(updated))

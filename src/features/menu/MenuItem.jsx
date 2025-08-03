@@ -19,7 +19,10 @@ function MenuItem({ pizza }) {
         }
         dispatch(addItem(newItem))
     }
-    const currentQuantity = useSelector(getCurrentQuantityById(id))
+    const currentQuantity = useSelector((state) =>
+        getCurrentQuantityById(id)(state)
+    )
+
     const isInCart = currentQuantity > 0
     return (
         <li className="flex gap-4 py-2">
